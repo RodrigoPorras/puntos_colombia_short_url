@@ -80,10 +80,10 @@ class S {
     );
   }
 
-  /// `Short:`
+  /// `Short Url:`
   String get short_url {
     return Intl.message(
-      'Short:',
+      'Short Url:',
       name: 'short_url',
       desc: '',
       args: [],

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:puntos_colombia_short_url/config/labels.dart';
+import 'package:puntos_colombia_short_url/config/themes/color_schemes.dart';
 import 'package:puntos_colombia_short_url/src/domain/models/short_url.dart';
 import 'package:puntos_colombia_short_url/src/presentation/cubits/clean_uri/clean_uri_cubit.dart';
 import 'package:puntos_colombia_short_url/src/presentation/cubits/local_short_urls/local_short_urls_cubit.dart';
@@ -60,12 +61,25 @@ class HomeView extends StatelessWidget {
                                     padding: defaultPadding,
                                     child: Column(children: [
                                       SelectableText(
-                                          '${labels.original}  ${e.original}'),
+                                          '${labels.original} ${e.original}',style: TextStyle(fontSize: 15),),
                                       SizedBox(
                                         height: 8.0,
                                       ),
-                                      SelectableText(
-                                          '${labels.short_url}  ${e.short}')
+                                      SelectableText.rich(
+                                        TextSpan(
+                                          style: TextStyle(fontSize: 15),
+                                          children: [
+                                            TextSpan(
+                                                text: '${labels.short_url} ',
+                                                style: TextStyle(
+                                                    color: lightColorScheme
+                                                        .primary)),
+                                            TextSpan(
+                                              text: '${e.short}',
+                                            ),
+                                          ],
+                                        ),
+                                      )
                                     ]),
                                   ),
                                 ))
