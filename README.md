@@ -1,16 +1,18 @@
 # puntos_colombia_short_url
 
-A new Flutter project.
+A flutter project for short Urls using https://cleanuri.com/
 
-## Getting Started
+## Flutter version  3.7.10 
+## Remember to execute before run: flutter pub run build_runner build --delete-conflicting-outputs
 
-This project is a starting point for a Flutter application.
+Contains:
 
-A few resources to get you started if this is your first Flutter project:
+- Clean arquitecture 
+- BLOC/Cubit as a state managment 
+- Untit Testing and widget testing
+- Simple container animation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+https://github.com/RodrigoPorras/puntos_colombia_short_url/assets/8269186/2c333430-f71b-4db5-9b12-bff0aa8f63ae
+
