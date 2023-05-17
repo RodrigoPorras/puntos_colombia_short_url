@@ -1,0 +1,8 @@
+{
+    "home_title" : "Acortador de Url",
+    "input_url_error" : "La Url no tiene un formato correcto, ejemplo: https://www.google.com ",
+    "original": "Original:",
+    "short_url" : "Url Corta:",
+    "send_url" : "Enviar",
+    "unknown_error" : "Error Desconocido",
+}

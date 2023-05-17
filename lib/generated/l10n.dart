@@ -49,6 +49,66 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Url Shortener`
+  String get home_title {
+    return Intl.message(
+      'Url Shortener',
+      name: 'home_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The URL does not have a correct format, example: https://www.google.com`
+  String get input_url_error {
+    return Intl.message(
+      'The URL does not have a correct format, example: https://www.google.com',
+      name: 'input_url_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Original:`
+  String get original {
+    return Intl.message(
+      'Original:',
+      name: 'original',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Short:`
+  String get short_url {
+    return Intl.message(
+      'Short:',
+      name: 'short_url',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send`
+  String get send_url {
+    return Intl.message(
+      'Send',
+      name: 'send_url',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unknown Error`
+  String get unknown_error {
+    return Intl.message(
+      'Unknown Error',
+      name: 'unknown_error',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -57,6 +117,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'es'),
     ];
   }
 

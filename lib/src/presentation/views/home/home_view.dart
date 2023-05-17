@@ -2,9 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:oktoast/oktoast.dart';
+import 'package:puntos_colombia_short_url/config/labels.dart';
 import 'package:puntos_colombia_short_url/src/domain/models/short_url.dart';
 import 'package:puntos_colombia_short_url/src/presentation/cubits/clean_uri/clean_uri_cubit.dart';
 import 'package:puntos_colombia_short_url/src/presentation/cubits/local_short_urls/local_short_urls_cubit.dart';
+import 'package:puntos_colombia_short_url/src/presentation/views/home/widgets/animated_button.dart';
 import 'package:puntos_colombia_short_url/src/utils/constants/sizes.dart';
 import 'package:puntos_colombia_short_url/src/utils/extensions/string.dart';
 
@@ -26,7 +28,7 @@ class HomeView extends StatelessWidget {
         }
       },
       child: Scaffold(
-        appBar: AppBar(title: const Text('Url Shortener')),
+        appBar: AppBar(title: Text(labels.home_title)),
         body: Column(
           children: [
             Padding(
@@ -34,9 +36,8 @@ class HomeView extends StatelessWidget {
               child: TextFormField(
                 key: inputKey,
                 controller: inputController,
-                validator: (value) => (value ?? '').isURL()
-                    ? null
-                    : 'La Url no tiene un formato correcto, ejemplo: https://www.google.com ',
+                validator: (value) =>
+                    (value ?? '').isURL() ? null : labels.input_url_error,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
                   borderRadius: const BorderRadius.all(Radius.circular(5.0)),
@@ -58,9 +59,13 @@ class HomeView extends StatelessWidget {
                                   child: Padding(
                                     padding: defaultPadding,
                                     child: Column(children: [
-                                      Text('Original:  ${e.original}'),
-                                      SizedBox(height: 8.0,),
-                                      Text('Short:  ${e.short}')
+                                      SelectableText(
+                                          '${labels.original}  ${e.original}'),
+                                      SizedBox(
+                                        height: 8.0,
+                                      ),
+                                      SelectableText(
+                                          '${labels.short_url}  ${e.short}')
                                     ]),
                                   ),
                                 ))
@@ -72,22 +77,16 @@ class HomeView extends StatelessWidget {
                 },
               ),
             ),
-            Container(
-              width: 200,
-              height: 70,
-              padding: defaultPadding,
-              child: ElevatedButton(
-                onPressed: () {
-                  if (!inputKey.currentState!.validate() ||
-                      inputController.text.isEmpty) {
-                    return;
-                  }
-                  context
-                      .read<CleanUriCubit>()
-                      .shortenUrl(url: inputController.text);
-                },
-                child: Text('Enviar'),
-              ),
+            AnimatedButton(
+              onPressed: () {
+                if (!inputKey.currentState!.validate() ||
+                    inputController.text.isEmpty) {
+                  return;
+                }
+                context
+                    .read<CleanUriCubit>()
+                    .shortenUrl(url: inputController.text);
+              },
             ),
           ],
         ),

@@ -1,1 +1,8 @@
-{}
+{
+    "home_title" : "Url Shortener",
+    "input_url_error" : "The URL does not have a correct format, example: https://www.google.com",
+    "original": "Original:",
+    "short_url" : "Short:",
+    "send_url" : "Send",
+    "unknown_error": "Unknown Error"
+}
